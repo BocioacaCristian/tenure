@@ -4,6 +4,8 @@ A Reigns-style swipe game of political survival. You're the president; each turn
 brings one question and two answers. Swipe — or use ← / → — to decide. Keep **Approval,
 Treasury, Military, and Media** all between 0 and 100; hit either extreme and your term ends.
 
+**▶ [Play it live](https://tenure-delta.vercel.app/)**
+
 ## Features
 
 - A danger-reactive atmosphere that intensifies as you near collapse
