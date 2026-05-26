@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="100%" r="95%">
+      <stop offset="0%" stop-color="#1a1c22"/>
+      <stop offset="55%" stop-color="#0e0f12"/>
+      <stop offset="100%" stop-color="#050608"/>
+    </radialGradient>
+    <radialGradient id="bloom" cx="50%" cy="100%" r="60%">
+      <stop offset="0%" stop-color="#c9a14a" stop-opacity="0.20"/>
+      <stop offset="70%" stop-color="#c9a14a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#bloom)"/>
+  <rect x="40" y="40" width="1120" height="550" rx="18" fill="none" stroke="#c9a14a" stroke-opacity="0.35" stroke-width="2"/>
+
+  <text x="600" y="300" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-weight="700" font-size="190" fill="#efe6d2">Term</text>
+
+  <line x1="510" y1="352" x2="690" y2="352" stroke="#8e6f2e" stroke-width="2"/>
+
+  <text x="600" y="410" text-anchor="middle" font-family="'Courier New', monospace" font-size="30" fill="#c9a14a" letter-spacing="10">A SWIPE GAME OF POWER</text>
+
+  <text x="600" y="545" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#c9c2b0" letter-spacing="2">React · TypeScript · Vite · Tailwind</text>
+</svg>
