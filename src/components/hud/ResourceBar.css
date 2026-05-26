@@ -1,4 +1,4 @@
-/* The contingency-fund marker: a small gilt blob with a soft glow. */
+/* The contingency-fund marker in the HUD eyebrow: a small gilt blob with a soft glow. */
 .hud__shield {
   display: inline-block;
   width: 8px;
@@ -10,81 +10,7 @@
   vertical-align: middle;
 }
 
-/* One resource gauge. Tone variants swap the pip gradient and add a glow or danger pulse. */
-.meter {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 10px;
-  background: linear-gradient(180deg, rgba(34, 37, 45, 0.85), rgba(20, 22, 27, 0.85));
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: var(--radius-2);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  transition: box-shadow 220ms ease, transform 220ms ease;
-  --pip-a: var(--color-bone);
-  --pip-b: #8a8478;
-}
-.meter__icon {
-  color: var(--color-bone);
-  display: grid;
-  place-items: center;
-  transition: color 200ms ease;
-}
-.meter__pips {
-  display: flex;
-  gap: 2px;
-  flex: 1;
-}
-.pip {
-  flex: 1;
-  height: 5px;
-  border-radius: 1px;
-  background: rgba(255, 255, 255, 0.06);
-  transition: background 200ms ease, box-shadow 200ms ease;
-}
-.pip--on {
-  background: linear-gradient(180deg, var(--pip-a), var(--pip-b));
-}
-.meter__value {
-  font-family: var(--font-ui);
-  font-feature-settings: "tnum";
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--color-bone);
-  min-width: 22px;
-  text-align: right;
-  transition: color 200ms ease;
-}
-
-.meter--stake {
-  transform: translateY(-1px) scale(1.02);
-  box-shadow:
-    0 0 0 1px rgba(201, 161, 74, 0.45),
-    0 0 20px -2px rgba(201, 161, 74, 0.45),
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  --pip-a: var(--color-gilt);
-  --pip-b: var(--color-gilt-soft);
-}
-.meter--stake .meter__icon,
-.meter--stake .meter__value {
-  color: var(--color-gilt);
-}
-.meter--stake .pip--on {
-  box-shadow: 0 0 6px rgba(201, 161, 74, 0.6);
-}
-
-.meter--danger {
-  --pip-a: var(--color-crimson);
-  --pip-b: var(--color-crimson-soft);
-  animation: dangerPulse 1.4s ease-in-out infinite;
-}
-.meter--danger .meter__icon,
-.meter--danger .meter__value {
-  color: var(--color-crimson);
-}
-.meter--danger .pip--on {
-  box-shadow: 0 0 6px rgba(176, 32, 42, 0.6);
-}
+/* Pulse for a resource sitting in the danger band; referenced by the meters' inline animation. */
 @keyframes dangerPulse {
   0%,
   100% {

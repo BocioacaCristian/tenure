@@ -1,23 +1,31 @@
-/** The available gold line-art role icons drawn on a portrait disc. */
-export type PortraitIcon =
-  | "scroll"
-  | "microphone"
-  | "stars"
-  | "gavel"
-  | "lightning"
-  | "cross"
-  | "oliveBranch"
-  | "envelope"
-  | "paperPlane"
-  | "scales"
-  | "openBook"
-  | "leaf"
-  | "chartBars";
+/** Keys identifying each character's flat-vector portrait (see PortraitArt). */
+export type PortraitKey =
+  | "vance"
+  | "delacroix"
+  | "kano"
+  | "okafor"
+  | "thorne"
+  | "halverson"
+  | "ren"
+  | "boy"
+  | "voss"
+  | "mott"
+  | "shah"
+  | "solberg"
+  | "greer"
+  | "voro"
+  | "sandoval"
+  | "karim"
+  | "park"
+  | "vos"
+  | "calderon"
+  | "frye"
+  | "garrison"
+  | "press"
+  | "square";
 
-/** Look of a card's portrait: a gradient disc tinted by `hue` carrying a gold role `icon`. */
+/** A card's portrait: which character's flat-vector face to draw on the disc. */
 export interface PortraitStyle {
-  /** Base hue (0–360) for the portrait gradient disc. */
-  hue: number;
-  /** Which gold line-art role icon to draw on the disc. */
-  icon: PortraitIcon;
+  /** The character whose composed portrait this card shows. */
+  imageKey: PortraitKey;
 }

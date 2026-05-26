@@ -6,7 +6,7 @@ const card: Card = {
   id: "x",
   name: "X",
   role: "r",
-  portrait: { hue: 0, icon: "scroll" },
+  portrait: { imageKey: "vance" },
   prompt: "?",
   left: { label: "L", effect: {} },
   right: { label: "R", effect: {} },

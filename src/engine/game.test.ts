@@ -10,7 +10,7 @@ import {
 } from "./game";
 
 /** Minimal portrait so test cards satisfy the type. */
-const PORTRAIT: PortraitStyle = { hue: 0, icon: "scroll" };
+const PORTRAIT: PortraitStyle = { imageKey: "vance" };
 
 const DECK: Card[] = [
   {

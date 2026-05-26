@@ -42,20 +42,11 @@ function GameOver({ cause, daysThisTerm, runDays, longestTerm, onSucceed, onMenu
 
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-6">
-      <motion.span
-        className="eyebrow mb-[18px] text-crimson"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-      >
-        Term ended
-      </motion.span>
-
       <motion.div
         className="obit"
         initial={{ opacity: 0, y: 14, scale: 0.96 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
-        transition={{ delay: 0.22, type: "spring", stiffness: 280, damping: 26 }}
+        transition={{ delay: 0.12, type: "spring", stiffness: 280, damping: 26 }}
       >
         <div className="text-center font-mono text-[10px] uppercase tracking-[0.22em] text-[#5a4626]">
           The Daily Record
@@ -79,7 +70,7 @@ function GameOver({ cause, daysThisTerm, runDays, longestTerm, onSucceed, onMenu
         className="mt-9 flex flex-col items-center gap-2.5"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5 }}
+        transition={{ delay: 0.42 }}
       >
         <button className="btn-outline" onClick={onSucceed}>
           New term
