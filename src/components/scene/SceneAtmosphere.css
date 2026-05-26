@@ -1,0 +1,161 @@
+/* Layered ambient scene. Each layer's intensity is set inline by SceneAtmosphere from one danger
+   scalar; the long transitions make danger fade in gradually rather than snap. */
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+.scene-base {
+  position: absolute;
+  inset: 0;
+  transition: filter 1400ms ease;
+  will-change: filter;
+}
+.scene-base::before {
+  content: "";
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  bottom: -15%;
+  height: 65%;
+  background: radial-gradient(60% 100% at 50% 100%, rgba(201, 161, 74, 0.24), rgba(201, 161, 74, 0) 70%);
+  filter: blur(2px);
+}
+.scene-base .drapery {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(176, 32, 42, 0.07) 0%, rgba(176, 32, 42, 0) 18%, rgba(176, 32, 42, 0) 82%, rgba(176, 32, 42, 0.07) 100%),
+    radial-gradient(60% 40% at 50% 0%, rgba(255, 255, 255, 0.025), transparent 70%);
+}
+
+.scene-cold {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(80% 70% at 50% 45%, rgba(80, 120, 120, 0.55) 0%, rgba(40, 70, 80, 0.32) 55%, rgba(20, 30, 40, 0) 100%);
+  mix-blend-mode: color;
+  transition: opacity 1400ms ease;
+  will-change: opacity;
+}
+
+.scene-red {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 40% at 0% 100%, rgba(176, 32, 42, 0.65), transparent 65%),
+    radial-gradient(55% 38% at 100% 0%, rgba(176, 32, 42, 0.45), transparent 70%),
+    radial-gradient(50% 30% at 50% 100%, rgba(176, 32, 42, 0.4), transparent 65%);
+  mix-blend-mode: screen;
+  transition: opacity 1400ms ease;
+  animation: redBreathe 5.4s ease-in-out infinite;
+  will-change: opacity;
+}
+@keyframes redBreathe {
+  0%,
+  100% {
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    filter: brightness(1.18) saturate(1.15);
+  }
+}
+
+.scene-storm {
+  position: absolute;
+  inset: 0;
+  transition: opacity 1400ms ease;
+  will-change: opacity;
+}
+.scene-storm-inner {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(60% 40% at 30% -5%, rgba(210, 220, 230, 0.55), transparent 65%),
+    radial-gradient(50% 35% at 80% -10%, rgba(190, 200, 220, 0.45), transparent 70%);
+  mix-blend-mode: screen;
+  animation: stormFlash 6.2s linear infinite;
+}
+@keyframes stormFlash {
+  0%,
+  18%,
+  22%,
+  100% {
+    opacity: 0;
+  }
+  19%,
+  20.5% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0.25;
+  }
+  62%,
+  64% {
+    opacity: 0.7;
+  }
+  63% {
+    opacity: 0.15;
+  }
+}
+
+.scene-grain {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: overlay;
+  transition: opacity 1400ms ease;
+  will-change: opacity;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 .95  0 0 0 0 .85  0 0 0 0.45 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  animation: grainDrift 7s steps(6) infinite;
+}
+@keyframes grainDrift {
+  0% {
+    background-position: 0 0;
+  }
+  20% {
+    background-position: -40px 12px;
+  }
+  40% {
+    background-position: 14px -28px;
+  }
+  60% {
+    background-position: -22px -8px;
+  }
+  80% {
+    background-position: 18px 22px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.scene-vignette {
+  position: absolute;
+  inset: 0;
+  transition: background 1400ms ease;
+  will-change: background;
+}
+
+.scene-unease {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(70% 50% at 50% 50%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.35) 100%);
+  transition: opacity 1400ms ease;
+  animation: uneaseDrift 11s ease-in-out infinite;
+}
+@keyframes uneaseDrift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-2%, 1%) scale(1.02);
+  }
+  50% {
+    transform: translate(1%, -1%) scale(1.04);
+  }
+  75% {
+    transform: translate(2%, 2%) scale(1.02);
+  }
+}

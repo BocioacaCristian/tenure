@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* Design tokens. Exposed as Tailwind utilities (bg-gilt, font-display, rounded-3, shadow-card…)
+   and as CSS custom properties on :root for the co-located component stylesheets. */
+@theme {
+  --color-ink: #0e0f12;
+  --color-ink-2: #14161b;
+  --color-obsidian: #191b21;
+  --color-obsidian-2: #22252d;
+  --color-parchment: #efe6d2;
+  --color-parchment-2: #e2d6bb;
+  --color-gilt: #c9a14a;
+  --color-gilt-soft: #8e6f2e;
+  --color-crimson: #b0202a;
+  --color-crimson-soft: #6b181d;
+  --color-sage: #6a8b6f;
+  --color-bone: #c9c2b0;
+  --color-ash: #6e6e78;
+  --color-ash-2: #3a3d45;
+
+  --font-display: "Fraunces", "Times New Roman", serif;
+  --font-ui: "Inter Tight", -apple-system, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --radius-1: 4px;
+  --radius-2: 10px;
+  --radius-3: 18px;
+  --radius-4: 28px;
+
+  --shadow-card: 0 30px 60px -20px rgba(0, 0, 0, 0.75), 0 12px 24px -8px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(0, 0, 0, 0.4);
+  --shadow-soft: 0 8px 24px -8px rgba(0, 0, 0, 0.6);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-parchment);
+    font-family: var(--font-ui);
+    overflow: hidden;
+    overscroll-behavior: none;
+    touch-action: none;
+    color-scheme: dark;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  /* Small monospace label used across screens. */
+  .eyebrow {
+    @apply font-mono text-[11px] tracking-[0.22em] uppercase text-ash;
+  }
+
+  /* Thin gilt divider that fades at both ends. */
+  .rule {
+    @apply h-px opacity-[0.55];
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-gilt-soft) 30%,
+      var(--color-gilt-soft) 70%,
+      transparent
+    );
+  }
+
+  /* Gilt-outlined pill button that fills on hover. Shared by the game-over and achievements screens. */
+  .btn-outline {
+    @apply rounded-full px-7 py-3.5 font-ui text-[13px] font-semibold uppercase tracking-[0.22em] text-parchment transition-colors;
+    box-shadow: inset 0 0 0 1px var(--color-gilt), 0 0 0 1px rgba(201, 161, 74, 0.15);
+  }
+  .btn-outline:hover {
+    @apply bg-gilt text-ink;
+    box-shadow: inset 0 0 0 1px var(--color-gilt), 0 10px 24px -8px rgba(201, 161, 74, 0.5);
+  }
+}

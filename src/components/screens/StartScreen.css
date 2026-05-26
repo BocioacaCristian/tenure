@@ -1,0 +1,35 @@
+/* The call-to-action: a gilt gradient pill that pulses to draw the eye. */
+.begin-btn {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-ink);
+  background: linear-gradient(180deg, #d8b25c, var(--color-gilt) 60%, #a8852e);
+  padding: 16px 32px;
+  border-radius: 999px;
+  box-shadow:
+    0 0 0 1px rgba(201, 161, 74, 0.5),
+    0 12px 30px -8px rgba(201, 161, 74, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  animation: beginPulse 2.6s ease-in-out infinite;
+  transition: transform 180ms ease;
+}
+.begin-btn:hover {
+  transform: translateY(-1px);
+}
+.begin-btn:active {
+  transform: translateY(0);
+}
+@keyframes beginPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 1px rgba(201, 161, 74, 0.4), 0 10px 24px -8px rgba(201, 161, 74, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 1px rgba(201, 161, 74, 0.7), 0 14px 38px -6px rgba(201, 161, 74, 0.65),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+}
